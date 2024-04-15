@@ -6,17 +6,15 @@ import {
   createTheme,
   responsiveFontSizes,
 } from "@mui/material";
-import Navbar from "./components/Navbar";
-import { useState } from "react";
-import Hero from "./components/Hero";
-import Features from "./components/Features";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
+import HomePage from "./pages/HomePage";
+import { useMyContext } from "./MyContextProvider";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const darkMode = useMyContext().values.darkMode;
 
-  const toggleDarkMode = () => {
-    setDarkMode((prev) => !prev);
-  };
+  console.log(darkMode);
 
   let theme = createTheme({
     palette: {
@@ -28,10 +26,13 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-      <Hero darkMode={darkMode} />
-      <Features />
+      <BrowserRouter>
+        <CssBaseline />
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

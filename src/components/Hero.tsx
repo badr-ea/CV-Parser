@@ -2,18 +2,14 @@ import { Box, Button, Typography, useMediaQuery } from "@mui/material";
 import React from "react";
 import HeroImage from "../images/1.avif";
 import { useTheme } from "@mui/material/styles";
+import { useMyContext } from "../MyContextProvider";
 
-type heroProps = {
-  darkMode: boolean;
-};
-
-export default function Hero({ darkMode }: heroProps) {
+export default function Hero() {
   const theme = useTheme();
-
+  const darkMode = useMyContext().values.darkMode;
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
   const isDesktop = useMediaQuery(theme.breakpoints.down("md"));
-
-  console.log(isDesktop);
+  const heroRef = useMyContext().refs.heroRef;
 
   return (
     <Box
@@ -28,6 +24,7 @@ export default function Hero({ darkMode }: heroProps) {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
+      ref={heroRef}
     >
       {/* Pseudo-element for overlay with filter */}
       <Box

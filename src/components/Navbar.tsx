@@ -1,31 +1,43 @@
 import {
   AppBar,
   Button,
+  Drawer,
   IconButton,
   Stack,
   Toolbar,
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import React from "react";
+import React, { useRef, useState } from "react";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useTheme } from "@mui/material/styles";
+import { useMyContext } from "../MyContextProvider";
 
-type navbarProps = {
-  darkMode: boolean;
-  toggleDarkMode: () => void;
-};
-
-export default function Navbar({ darkMode, toggleDarkMode }: navbarProps) {
+export default function Navbar() {
   const theme = useTheme();
-
+  const { values, setValues } = useMyContext();
+  const darkMode = values.darkMode;
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
   const isDesktop = useMediaQuery(theme.breakpoints.down("md"));
+  const { heroRef, featuresRef } = useMyContext().refs;
+  const [open, setOpen] = useState(false);
+
+  const scrollToSection = (ref: React.MutableRefObject<any>) => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const toggleDarkMode = () => {
+    setValues((prev) => ({ ...prev, darkMode: !prev.darkMode }));
+  };
+
+  const toggleDrawer = (newOpen: boolean) => {
+    setOpen(newOpen);
+  };
 
   return (
-    <AppBar position="static">
+    <AppBar position="sticky">
       <Toolbar
         variant={isDesktop ? "regular" : "dense"}
         sx={{
@@ -42,10 +54,18 @@ export default function Navbar({ darkMode, toggleDarkMode }: navbarProps) {
           alignItems="center"
           sx={{ display: { xs: "none", md: "flex" } }}
         >
-          <Button variant="text" color="inherit">
+          <Button
+            variant="text"
+            color="inherit"
+            onClick={() => scrollToSection(heroRef)}
+          >
             Acueill
           </Button>
-          <Button variant="text" color="inherit">
+          <Button
+            variant="text"
+            color="inherit"
+            onClick={() => scrollToSection(featuresRef)}
+          >
             Présentation
           </Button>
           <Button variant="text" color="inherit">
@@ -64,11 +84,56 @@ export default function Navbar({ darkMode, toggleDarkMode }: navbarProps) {
           <IconButton color="inherit" onClick={toggleDarkMode} edge="start">
             {darkMode ? <DarkModeIcon /> : <LightModeIcon />}
           </IconButton>
-          <IconButton color="inherit" edge="start">
+          <IconButton
+            color="inherit"
+            edge="start"
+            onClick={() => toggleDrawer(true)}
+          >
             <MenuIcon />
           </IconButton>
         </Stack>
       </Toolbar>
+      <Drawer open={open} onClose={() => toggleDrawer(false)} anchor="right">
+        <Stack
+          direction="column"
+          spacing={2}
+          alignItems="center"
+          sx={{ display: { xs: "flex", md: "none" } }}
+        >
+          <Button
+            variant="text"
+            color="inherit"
+            sx={(theme) => ({
+              width: "100%",
+              "&:hover": { color: theme.palette.info.main },
+            })}
+            onClick={() => scrollToSection(heroRef)}
+          >
+            Acueill
+          </Button>
+          <Button
+            variant="text"
+            color="inherit"
+            sx={(theme) => ({
+              width: "100%",
+              "&:hover": { color: theme.palette.info.main },
+            })}
+            onClick={() => scrollToSection(featuresRef)}
+          >
+            Présentation
+          </Button>
+          <Button
+            variant="text"
+            color="inherit"
+            sx={(theme) => ({
+              width: "100%",
+              "&:hover": { color: theme.palette.info.main },
+            })}
+          >
+            Contact
+          </Button>
+        </Stack>
+      </Drawer>
     </AppBar>
   );
 }

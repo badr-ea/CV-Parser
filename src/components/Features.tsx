@@ -6,12 +6,14 @@ import {
   useTheme,
 } from "@mui/material";
 import React from "react";
+import { useMyContext } from "../MyContextProvider";
 
 export default function Features() {
   const theme = useTheme();
 
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
   const isDesktop = useMediaQuery(theme.breakpoints.down("md"));
+  const featuresRef = useMyContext().refs.featuresRef;
 
   return (
     <Box
@@ -20,6 +22,7 @@ export default function Features() {
           xs: "80px",
         },
       }}
+      ref={featuresRef}
     >
       <Container>
         <Typography
