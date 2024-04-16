@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/CV-Parser/static/js/main.965372db.js",
+    "main.js": "/CV-Parser/static/js/main.b397951f.js",
     "static/media/1.avif": "/CV-Parser/static/media/1.22df16c0c853a2e4d72a.avif",
     "index.html": "/CV-Parser/index.html",
-    "main.965372db.js.map": "/CV-Parser/static/js/main.965372db.js.map"
+    "main.b397951f.js.map": "/CV-Parser/static/js/main.b397951f.js.map"
   },
   "entrypoints": [
-    "static/js/main.965372db.js"
+    "static/js/main.b397951f.js"
   ]
 }
