@@ -26,7 +26,7 @@ Cela lancera votre application React dans votre navigateur par défaut à l'adre
 
 ## Configuration du côté serveur (Express.js et MongoDB)
    
-1. **Installer les dépendances du côté serveur** : Ouvrez un terminal dans le répertoire server de votre projet CV Parser et exécutez la commande suivante pour installer les dépendances :
+1. **Installer les dépendances du côté serveur** : Ouvrez un terminal dans le répertoire `server` de votre projet CV Parser et exécutez la commande suivante pour installer les dépendances :
 
    ```bash
    cd ../server
