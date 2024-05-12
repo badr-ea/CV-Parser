@@ -22,7 +22,7 @@ Avant de commencer, assurez-vous d'avoir installé les éléments suivants sur v
 
    ```bash
    npm start
-   Cela lancera votre application React dans votre navigateur par défaut à l'adresse ***http://localhost:3000***.
+Cela lancera votre application React dans votre navigateur par défaut à l'adresse ***http://localhost:3000***.
 
 ## Configuration du côté serveur (Express.js et MongoDB)
    
