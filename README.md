@@ -37,7 +37,7 @@ Cela lancera votre application React dans votre navigateur par défaut à l'adre
    ```bash
    node app.js
 
-3. **Gestion des fichiers uploadés** : Les fichiers téléversés par l'application seront stockés dans le répertoire uploads du côté serveur. Assurez-vous que ce répertoire existe et dispose des autorisations nécessaires pour stocker des fichiers.   
+3. **Gestion des fichiers uploadés** : Les fichiers téléversés par l'application seront stockés dans le répertoire `uploads` du côté serveur. Assurez-vous que ce répertoire existe et dispose des autorisations nécessaires pour stocker des fichiers.   
  
 ## Configuration de MongoDB
 
