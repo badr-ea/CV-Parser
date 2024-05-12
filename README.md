@@ -32,7 +32,7 @@ Cela lancera votre application React dans votre navigateur par défaut à l'adre
    cd ../server
    npm install
 
-2. **Configurer la variable d'environnement MONGODB_URI** : Dans le fichier `.en` du répertoire `server`, assurez-vous de modifier la variable MONGODB_URI selon votre configuration MongoDB.
+2. **Configurer la variable d'environnement MONGODB_URI** : Dans le fichier `.env` du répertoire `server`, assurez-vous de modifier la variable MONGODB_URI selon votre configuration MongoDB.
    Par exemple :
 
    ```bash
