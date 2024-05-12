@@ -6,7 +6,7 @@ Avant de commencer, assurez-vous d'avoir installé les éléments suivants sur v
 
 - [Node.js](https://nodejs.org/)
 - [MongoDB](https://www.mongodb.com/)
-- [MongoDB Compass](https://www.mongodb.com/try/download/compass) (pour la gestion de MongoDB avec une interface graphique)
+- [MongoDB Compass](https://www.mongodb.com/try/download/community) (pour la gestion de MongoDB avec une interface graphique)
 - [Git](https://git-scm.com/) (pour la gestion de version et le contrôle de code source)
 - Un éditeur de texte de votre choix (par exemple, Visual Studio Code)
 
