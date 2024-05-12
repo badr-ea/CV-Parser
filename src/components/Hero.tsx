@@ -28,7 +28,7 @@ export default function Hero() {
       }}
       ref={heroRef}
     >
-      {/* Pseudo-element for overlay with filter */}
+
       <Box
         sx={{
           position: "absolute",
@@ -41,7 +41,6 @@ export default function Hero() {
         }}
       />
 
-      {/* Content */}
       <Box
         sx={{
           position: "absolute",
@@ -50,7 +49,7 @@ export default function Hero() {
             md: "25%",
           },
           left: "10%",
-          color: "white", // Set color of text to white
+          color: "white",
           width: "80vw",
         }}
       >
