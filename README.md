@@ -31,13 +31,19 @@ Cela lancera votre application React dans votre navigateur par défaut à l'adre
    ```bash
    cd ../server
    npm install
+
+2. **Configurer la variable d'environnement MONGODB_URI** : Dans le fichier `.en` du répertoire `server`, assurez-vous de modifier la variable MONGODB_URI selon votre configuration MongoDB.
+   Par exemple :
+
+   ```bash
+   MONGODB_URI=mongodb://localhost:27017/cv-parser
    
-2. **Démarrer le serveur Express** : Après l'installation des dépendances, vous pouvez démarrer le serveur Express en exécutant la commande suivante :
+4. **Démarrer le serveur Express** : Après l'installation des dépendances, vous pouvez démarrer le serveur Express en exécutant la commande suivante :
    
    ```bash
    node app.js
 
-3. **Gestion des fichiers uploadés** : Les fichiers téléversés par l'application seront stockés dans le répertoire `uploads` du côté serveur. Assurez-vous que ce répertoire existe et dispose des autorisations nécessaires pour stocker des fichiers.   
+5. **Gestion des fichiers uploadés** : Les fichiers téléversés par l'application seront stockés dans le répertoire `uploads` du côté serveur. Assurez-vous que ce répertoire existe et dispose des autorisations nécessaires pour stocker des fichiers.   
  
 ## Configuration de MongoDB
 
