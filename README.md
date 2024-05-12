@@ -9,6 +9,13 @@ Avant de commencer, assurez-vous d'avoir installé les éléments suivants sur v
 - [Git](https://git-scm.com/) (pour la gestion de version et le contrôle de code source)
 - Un éditeur de texte de votre choix (par exemple, Visual Studio Code)
 
+## Clonage du dépôt
+
+Pour commencer, clonez le dépôt de l'application CV Parser sur votre machine locale en exécutant la commande suivante dans votre terminal :
+
+```bash
+git clone https://github.com/badr-ea/CV-Parser.git
+
 ## Configuration du côté client (React)
 
 1. **Installer les dépendances du côté client** : Ouvrez un terminal dans le répertoire `client` de votre projet CV Parser et exécutez la commande suivante pour installer les dépendances :
