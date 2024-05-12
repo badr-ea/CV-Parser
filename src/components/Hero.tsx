@@ -3,6 +3,7 @@ import React from "react";
 import HeroImage from "../images/1.avif";
 import { useTheme } from "@mui/material/styles";
 import { useMyContext } from "../MyContextProvider";
+import { useNavigate } from "react-router";
 
 export default function Hero() {
   const theme = useTheme();
@@ -10,6 +11,7 @@ export default function Hero() {
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
   const isDesktop = useMediaQuery(theme.breakpoints.down("md"));
   const heroRef = useMyContext().refs.heroRef;
+  const navigate = useNavigate();
 
   return (
     <Box
@@ -62,6 +64,9 @@ export default function Hero() {
           variant="contained"
           sx={{ my: 2 }}
           size={isDesktop ? "small" : "large"}
+          onClick={() => {
+            navigate("/formulaire");
+          }}
         >
           Testez le logiciel
         </Button>

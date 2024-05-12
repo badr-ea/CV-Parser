@@ -11,7 +11,7 @@ type homePageProps = {
 export default function HomePage() {
   return (
     <>
-      <Navbar />
+      <Navbar isHome={true} />
       <Hero />
       <Features />
     </>

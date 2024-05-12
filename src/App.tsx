@@ -1,15 +1,17 @@
 import {
-  Box,
-  Container,
   CssBaseline,
   ThemeProvider,
   createTheme,
   responsiveFontSizes,
 } from "@mui/material";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import HomePage from "./pages/HomePage";
 import { useMyContext } from "./MyContextProvider";
+import Form from "./components/Form";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import FormPage from "./pages/FormPage";
 
 function App() {
   const darkMode = useMyContext().values.darkMode;
@@ -26,13 +28,16 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <CssBaseline />
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-        </Routes>
-      </BrowserRouter>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <Router>
+          <CssBaseline />
+          <ScrollToTop />
+          <Routes>
+            <Route path="/CV-Parser" element={<HomePage />} />
+            <Route path="/formulaire" element={<FormPage />} />
+          </Routes>
+        </Router>
+      </LocalizationProvider>
     </ThemeProvider>
   );
 }

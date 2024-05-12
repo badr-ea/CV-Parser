@@ -12,10 +12,16 @@ import React, { useRef, useState } from "react";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import MenuIcon from "@mui/icons-material/Menu";
+import HomeIcon from "@mui/icons-material/Home";
 import { useTheme } from "@mui/material/styles";
 import { useMyContext } from "../MyContextProvider";
+import { useNavigate } from "react-router";
 
-export default function Navbar() {
+interface NavbarProps {
+  isHome?: boolean;
+}
+
+export default function Navbar({ isHome = false }: NavbarProps) {
   const theme = useTheme();
   const { values, setValues } = useMyContext();
   const darkMode = values.darkMode;
@@ -36,6 +42,8 @@ export default function Navbar() {
     setOpen(newOpen);
   };
 
+  const navigate = useNavigate();
+
   return (
     <AppBar position="sticky">
       <Toolbar
@@ -54,23 +62,31 @@ export default function Navbar() {
           alignItems="center"
           sx={{ display: { xs: "none", md: "flex" } }}
         >
-          <Button
-            variant="text"
-            color="inherit"
-            onClick={() => scrollToSection(heroRef)}
-          >
-            Acueill
-          </Button>
-          <Button
-            variant="text"
-            color="inherit"
-            onClick={() => scrollToSection(featuresRef)}
-          >
-            Présentation
-          </Button>
-          <Button variant="text" color="inherit">
-            Contact
-          </Button>
+          {isHome ? (
+            <>
+              <Button
+                variant="text"
+                color="inherit"
+                onClick={() => scrollToSection(heroRef)}
+              >
+                Acueill
+              </Button>
+              <Button
+                variant="text"
+                color="inherit"
+                onClick={() => scrollToSection(featuresRef)}
+              >
+                Présentation
+              </Button>
+              <Button variant="text" color="inherit">
+                Contact
+              </Button>{" "}
+            </>
+          ) : (
+            <IconButton color="inherit" onClick={() => navigate("/CV-Parser")}>
+              <HomeIcon />
+            </IconButton>
+          )}
           <IconButton color="inherit" onClick={toggleDarkMode} edge="start">
             {darkMode ? <DarkModeIcon /> : <LightModeIcon />}
           </IconButton>
@@ -84,13 +100,19 @@ export default function Navbar() {
           <IconButton color="inherit" onClick={toggleDarkMode} edge="start">
             {darkMode ? <DarkModeIcon /> : <LightModeIcon />}
           </IconButton>
-          <IconButton
-            color="inherit"
-            edge="start"
-            onClick={() => toggleDrawer(true)}
-          >
-            <MenuIcon />
-          </IconButton>
+          {isHome ? (
+            <IconButton
+              color="inherit"
+              edge="start"
+              onClick={() => toggleDrawer(true)}
+            >
+              <MenuIcon />
+            </IconButton>
+          ) : (
+            <IconButton color="inherit" onClick={() => navigate("/CV-Parser")}>
+              <HomeIcon />
+            </IconButton>
+          )}
         </Stack>
       </Toolbar>
       <Drawer open={open} onClose={() => toggleDrawer(false)} anchor="right">
