@@ -14,7 +14,7 @@ Avant de commencer, assurez-vous d'avoir installé les éléments suivants sur v
 Pour commencer, clonez le dépôt de l'application CV Parser sur votre machine locale en exécutant la commande suivante dans votre terminal :
 
 ```bash
-git clone -b branch https://github.com/badr-ea/CV-Parser.git
+git clone -b master https://github.com/badr-ea/CV-Parser.git
 ```
 
 ## Configuration du côté client (React)
